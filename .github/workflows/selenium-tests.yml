@@ -111,7 +111,7 @@ jobs:
 
       - name: Verify server is running
         run: |
-          curl -f http://localhost:3000 || { echo "Server failed to start"; exit 1; }
+          curl -f http://localhost:80 || { echo "Server failed to start"; exit 1; }
                                            # Use curl to check the app is live
 
       - name: Wait for Selenium server to be up
