@@ -1,0 +1,27 @@
+version: "3.8"
+  
+services:
+
+  # ====== WEB SERVER ======
+  web:
+    build:
+      context: .
+      dockerfile: web.Dockerfile          # Change this to Dockerfile name
+    container_name: node_webserver        # Change if needed
+    ports:
+      - "80:80"                           # Ports mapping
+    restart: unless-stopped
+
+  # ====== GIT SERVER ======
+  git-server:
+    build:
+      dockerfile: gitserver.Dockerfile  # Change this to Dockerfile name  
+      context: .
+    restart: always
+    ports:
+      - "3000:3000" 
+    environment:
+      - USER=DONALD TRUMP
+      - EMAIL=Trump@donald.com
+    volumes:
+      - ./repos:/var/git
