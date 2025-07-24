@@ -25,3 +25,4 @@ services:
       - EMAIL=Trump@donald.com
     volumes:
       - ./repos:/var/git
+
